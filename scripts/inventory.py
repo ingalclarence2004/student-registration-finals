@@ -1,6 +1,7 @@
 import csv
 import os
 import datetime
+import random
 
 INVENTORY_FILE = 'data/inventory.csv'
 LOG_FILE = 'logs/inventory.log'
@@ -63,7 +64,9 @@ def add_stock(inventory):
         }
 
     save_inventory(inventory)
-    log_transaction(f"Added {qty} of '{item}' at ${price:.2f} each.")
+    invoice_no = random.randrange(100000, 999999)
+    dummy_invoice = f"INV{invoice_no}"
+    log_transaction(f"Added {qty} of '{item}' at ${price:.2f} each with invoice number {dummy_invoice}.")
     print("Stock added successfully.")
 
 
